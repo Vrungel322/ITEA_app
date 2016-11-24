@@ -22,5 +22,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Git button clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+        //Some add 
     }
 }
