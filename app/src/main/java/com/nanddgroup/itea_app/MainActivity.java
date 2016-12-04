@@ -1,7 +1,10 @@
 package com.nanddgroup.itea_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -25,5 +28,15 @@ public class MainActivity extends AppCompatActivity {
         l.add(new ImageView(getApplicationContext()));
         adapter.updateList(l);
 
+        lvTest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                ArrayList<POJOTest> parcelableList = new ArrayList<POJOTest>();
+                parcelableList.add(new POJOTest("TestNamem", "TestSurName"));
+                intent.putParcelableArrayListExtra("ParcelableTest", parcelableList);
+                startActivity(intent);
+            }
+        });
     }
 }
