@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                ArrayList<POJOTest> parcelableList = new ArrayList<POJOTest>();
-                parcelableList.add(new POJOTest("TestNamem", "TestSurName"));
-                intent.putParcelableArrayListExtra("ParcelableTest", parcelableList);
+                intent.putExtra("ParcelableTest", new POJOTest("TestNamem", "TestSurName"));
                 startActivity(intent);
             }
         });
