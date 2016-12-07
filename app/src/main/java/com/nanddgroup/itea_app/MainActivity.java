@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         l.add(new ImageView(getApplicationContext()));
         adapter.updateList(l);
 
+        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
+            count = savedInstanceState.getInt("count");
+        }
+
         lvTest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -44,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        if (savedInstanceState.containsKey("count")) {
+        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
             count = savedInstanceState.getInt("count");
         }
         super.onRestoreInstanceState(savedInstanceState);
