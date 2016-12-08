@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//BK
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 22
@@ -26,4 +28,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:22.1.0'
     testCompile 'junit:junit:4.12'
+
+    //BK
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
