@@ -3,6 +3,8 @@ package com.nanddgroup.itea_app;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +21,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("MyTitle");
         toolbar.setNavigationIcon(android.R.drawable.sym_def_app_icon);
     }
-    
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Item 1").setIcon(R.drawable.contact_icon).setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        return super.onCreateOptionsMenu(menu);
+    }
 }
