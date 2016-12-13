@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView lvTest;
     private LvAdapterTest adapter;
-    private int count ;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
-            count = savedInstanceState.getInt("count");
+//            count = savedInstanceState.getInt("count");
         }
         super.onRestoreInstanceState(savedInstanceState);
     }
