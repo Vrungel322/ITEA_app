@@ -4,34 +4,24 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView lvTest;
-    private LvAdapterTest adapter;
+//    private LvAdapterTest adapter;
     private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lvTest = (ListView) findViewById(R.id.lvTest);
-        adapter = new LvAdapterTest(this, R.layout.each_item);
-        lvTest.setAdapter(adapter);
-        List<ImageView> l = new ArrayList<ImageView>();
-        l.add(new ImageView(getApplicationContext()));
-        l.add(new ImageView(getApplicationContext()));
-        adapter.updateList(l);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
-            count = savedInstanceState.getInt("count");
-        }
+
+//        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
+//            count = savedInstanceState.getInt("count");
+//        }
 
         lvTest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -46,17 +36,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
-//            count = savedInstanceState.getInt("count");
-        }
-        super.onRestoreInstanceState(savedInstanceState);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("count", count);
-        super.onSaveInstanceState(outState);
-    }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
+////            count = savedInstanceState.getInt("count");
+//        }
+//        super.onRestoreInstanceState(savedInstanceState);
+//    }
+//
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        outState.putInt("count", count);
+//        super.onSaveInstanceState(outState);
+//    }
 }
