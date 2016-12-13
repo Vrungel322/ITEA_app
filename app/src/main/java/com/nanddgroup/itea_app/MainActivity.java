@@ -2,14 +2,14 @@ package com.nanddgroup.itea_app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView lvTest;
+    private Button bTest;
 //    private LvAdapterTest adapter;
     private int count = 0;
 
@@ -17,36 +17,74 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bTest = (Button) findViewById(R.id.bTest);
 
 
-//        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
-//            count = savedInstanceState.getInt("count");
-//        }
+        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
+            count = savedInstanceState.getInt("count");
+        }
 
-        lvTest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        bTest.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-//                intent.putExtra("ParcelableTest", new POJOTest("TestNamem", "TestSurName"));
-//                startActivity(intent);
-//                finish();
+            public void onClick(View view) {
                 count++;
                 Toast.makeText(MainActivity.this, ""+ count, Toast.LENGTH_SHORT).show();
             }
         });
+
+        Log.wtf("act_life", "onCreate");
     }
 
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
-////            count = savedInstanceState.getInt("count");
-//        }
-//        super.onRestoreInstanceState(savedInstanceState);
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        outState.putInt("count", count);
-//        super.onSaveInstanceState(outState);
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.wtf("act_life", "onStart");
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState != null && savedInstanceState.containsKey("count")) {
+            count = savedInstanceState.getInt("count");
+        }
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.wtf("act_life", "onRestoreInstanceState");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.wtf("act_life", "onResume");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.wtf("act_life", "onPause");
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("count", count);
+        super.onSaveInstanceState(outState);
+        Log.wtf("act_life", "onSaveInstanceState");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.wtf("act_life", "onStop");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.wtf("act_life", "onDestroy");
+
+    }
 }
