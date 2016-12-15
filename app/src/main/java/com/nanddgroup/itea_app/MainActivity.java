@@ -22,13 +22,27 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                         Toast.makeText(MainActivity.this, "Negative button Clicked", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNeutralButton("Maybe", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
                         Toast.makeText(MainActivity.this, "Maybe buttom Clicked", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        Toast.makeText(MainActivity.this, "onCancel", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        Toast.makeText(MainActivity.this, "onDismiss", Toast.LENGTH_SHORT).show();
                     }
                 })
         .setTitle("Test title")
