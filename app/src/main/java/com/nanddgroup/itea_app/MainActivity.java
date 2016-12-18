@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                TestDialogFragment testDialogFragment = new TestDialogFragment();
 //                testDialogFragment.setArguments(null);
-                TestDialogFragment.newInstance(null).show(ft, "Some_tag");
+                TestDialogFragment.newInstance("Hello from MainActivity").show(ft, "Some_tag");
             }
         });
     }
