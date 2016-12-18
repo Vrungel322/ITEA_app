@@ -1,6 +1,7 @@
 package com.nanddgroup.itea_app;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -30,6 +31,12 @@ public class TestDialogFragment extends DialogFragment {
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Log.e("dialog", "onAttach");
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
@@ -48,5 +55,29 @@ public class TestDialogFragment extends DialogFragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e("dialog", "onStop");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.e("dialog", "onDestroyView");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e("dialog", "onDestroy");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.e("dialog", "onDetach");
     }
 }
