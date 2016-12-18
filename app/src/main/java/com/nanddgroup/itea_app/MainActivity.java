@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                TestDialogFragment testDialogFragment = new TestDialogFragment();
+//                testDialogFragment.setArguments(null);
                 TestDialogFragment.newInstance(null).show(ft, "Some_tag");
             }
         });

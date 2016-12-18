@@ -29,6 +29,12 @@ public class TestDialogFragment extends DialogFragment {
         return testDialogFragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = getArguments();
+        Log.e("dialog", "onCreate");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,12 +48,5 @@ public class TestDialogFragment extends DialogFragment {
             }
         });
         return view;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Bundle bundle = getArguments();
-        Log.e("dialog", "onCreate");
     }
 }
