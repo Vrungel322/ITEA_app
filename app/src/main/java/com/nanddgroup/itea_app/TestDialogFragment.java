@@ -19,6 +19,12 @@ import android.widget.Toast;
  */
 public class TestDialogFragment extends DialogFragment {
 
+    private IChangeActivityState iChangeActivityState;
+
+    interface IChangeActivityState{
+        void changeActivityBackground();
+    }
+
 
     public TestDialogFragment() {
         // Required empty public constructor
@@ -33,6 +39,7 @@ public class TestDialogFragment extends DialogFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        iChangeActivityState = (IChangeActivityState) activity;
         Log.e("dialog", "onAttach");
     }
 
@@ -52,6 +59,7 @@ public class TestDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "ButtonClicked", Toast.LENGTH_SHORT).show();
+                iChangeActivityState.changeActivityBackground();
             }
         });
         return view;
