@@ -32,11 +32,19 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
 //                TestDialogFragment testDialogFragment = new TestDialogFragment();
 //                testDialogFragment.setArguments(null);
                 TestDialogFragment testDialogFragment = TestDialogFragment.newInstance("Hello from MainActivity");
-//                testDialogFragment.setStyle(DialogFragment.STYLE_NORMAL, 0);
-                testDialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-//                testDialogFragment.setStyle(DialogFragment.STYLE_NO_FRAME, 0);
-//                testDialogFragment.setStyle(DialogFragment.STYLE_NO_INPUT, 0);
+                
+                testDialogFragment.setStyle(DialogFragment.STYLE_NORMAL, 0); // - обычный диалог (значение по умолчанию);
+
+//                testDialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE, 0); // -диалог без текста-заголовка;
+//                testDialogFragment.setStyle(DialogFragment.STYLE_NO_FRAME, 0); // - диалог без фоновой подложки,
+//                                                                                  отображаются только View - элементы, занесенные в контент диалога;
+
+//                testDialogFragment.setStyle(DialogFragment.STYLE_NO_INPUT, 0); //- диалог, который не реагирует на воздействие пользователя
+                //               (касание, клик) и является "прозрачным" для этих воздействий
+                //               (диалог будет себя вести как незакрываемый самостоятельно Toast)
+
                 testDialogFragment.show(ft, "Some_tag");
+
             }
         });
 
