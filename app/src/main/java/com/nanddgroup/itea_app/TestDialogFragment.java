@@ -72,6 +72,24 @@ public class TestDialogFragment extends DialogFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Log.e("dialog", "onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("dialog", "onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.e("dialog", "onPause");
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
         Log.e("dialog", "onStop");
