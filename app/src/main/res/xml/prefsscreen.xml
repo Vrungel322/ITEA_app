@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <SwitchPreference
+        android:id="@+id/swp"
+        android:key="switch"
+        android:order="0"
+        android:summary="Включатель/Выключатель"
+        android:summaryOff="Выключен"
+        android:summaryOn="Включен"
+        android:switchTextOff="Текст &quot;Выключен&quot;"
+        android:switchTextOn="Текст &quot;Включен&quot;"
+        android:title="SwitchPreference" />
+
+    <Preference
+        android:id="@+id/preference"
+        android:enabled="true"
+        android:key="pref"
+        android:selectable="true"
+        android:summary="Простая настройка, работающая по клику"
+        android:title="Просто Preference" />
+
+    <CheckBoxPreference
+        android:key="check"
+        android:summary="Выбор да/нет"
+        android:summaryOff="Summary &quot;Выключен&quot;"
+        android:summaryOn="Summary &quot;Включен&quot;"
+        android:title="CheckBox" />
+
+    <EditTextPreference
+        android:dialogMessage="Текст Диалога"
+        android:dialogTitle="Заголовок Диалога"
+        android:key="edit"
+        android:negativeButtonText="Нет-кнопка"
+        android:positiveButtonText="Да-кнопка"
+        android:summary="Поле, вызывающее предустановленный AlertDialog"
+        android:title="EditText" />
+
+    <ListPreference
+        android:dialogTitle="Диалог списка"
+        android:entries="@array/Countres"
+        android:entryValues="@array/Capitals"
+        android:key="list"
+        android:negativeButtonText="Нет-кнопка"
+        android:positiveButtonText="Да-кнопка"
+        android:summary="Список настроек - по нажатию значение заносится в SharedPreferences"
+        android:title="ListPreference" />
+
+    <MultiSelectListPreference
+        android:dialogTitle="Диалог списка"
+        android:entries="@array/Countres"
+        android:entryValues="@array/Capitals"
+        android:key="multilist"
+        android:negativeButtonText="Нет-кнопка"
+        android:positiveButtonText="Да-кнопка"
+        android:summary="Сразу и много"
+        android:title="MultiSelectListPreference" />
+
+    <RingtonePreference
+        android:key="ring"
+        android:ringtoneType="ringtone|notification|alarm|all"
+        android:showDefault="true"
+        android:showSilent="true"
+        android:summary="Список рингтонов"
+        android:title="RingtonePreference" />
+
+
+</PreferenceScreen>

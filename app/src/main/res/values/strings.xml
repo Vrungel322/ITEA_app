@@ -3,4 +3,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Countres">
+        <item>Украина</item>
+        <item>Польша</item>
+        <item>Германия</item>
+        <item>Франция</item>
+        <item>Испания</item>
+        <item>Италия</item>
+        <item>Греция</item>
+        <item>Австрия</item>
+    </string-array>
+    <string-array name="Capitals">
+        <item>Киев</item>
+        <item>Варшава </item>
+        <item>Берлин</item>
+        <item>Париж</item>
+        <item>Мадрид</item>
+        <item>Рим</item>
+        <item>Афины</item>
+        <item>Вена</item>
+    </string-array>
+
 </resources>
