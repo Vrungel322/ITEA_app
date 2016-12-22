@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
     private Button bStartPrefsActivity;
     private RelativeLayout activity_main;
     private boolean themeCYAN = false;
+    private FragmentTransaction ft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,13 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
         bShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                TestDialogFragment testDialogFragment = new TestDialogFragment();
-//                testDialogFragment.setArguments(null);
+
+//                Bundle b = new Bundle();
+//                b.putString("KEY", "for fragment");
+//                testDialogFragment.setArguments(b);
                 TestDialogFragment testDialogFragment = TestDialogFragment.newInstance("Hello from MainActivity");
-                
+
                 testDialogFragment.setStyle(DialogFragment.STYLE_NORMAL, 0); // - обычный диалог (значение по умолчанию);
 
 //                testDialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE, 0); // -диалог без текста-заголовка;
@@ -43,10 +46,14 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
                 //               (касание, клик) и является "прозрачным" для этих воздействий
                 //               (диалог будет себя вести как незакрываемый самостоятельно Toast)
 
+
+                ft = getSupportFragmentManager().beginTransaction();
                 testDialogFragment.show(ft, "Some_tag");
 
             }
         });
+
+
 
         bStartPrefsActivity.setOnClickListener(new View.OnClickListener() {
             @Override
