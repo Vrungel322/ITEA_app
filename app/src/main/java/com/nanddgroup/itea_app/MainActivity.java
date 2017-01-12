@@ -10,47 +10,52 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
-   private MyTask mt;
-   private TextView tv;
+    private MyTask mt;
+    private TextView tv;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("qwe", "create MainActivity: " + this.hashCode());
-
         tv = (TextView) findViewById(R.id.tv);
 
-//        mt = (MyTask) getLastCustomNonConfigurationInstance();
-//        if (mt == null) {
+        mt = (MyTask) getLastCustomNonConfigurationInstance();
+        if (mt == null) {
             mt = new MyTask();
             mt.execute();
-//        }
-        // передаем в MyTask ссылку на текущее MainActivity
-//        mt.link(this);
+        }
+//         передаем в MyTask ссылку на текущее MainActivity
+        mt.link(this);
 
-        Log.d("qwe", "create MyTask: " + mt.hashCode());
+//        Log.d("qwe", "create MyTask: " + mt.hashCode());
     }
 
-//    @Override
-//    public Object onRetainCustomNonConfigurationInstance() {
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
 //        удаляем из MyTask ссылку на старое MainActivity
-//        mt.unLink();
-//        return mt;
-//    }
+        mt.unLink();
+        return mt;
+    }
 
+    @Override
+    protected void onDestroy() {
+        mt.unLink();
+        super.onDestroy();
+    }
 
-     class MyTask extends AsyncTask<String, Integer, Void> {
+    static class MyTask extends AsyncTask<String, Integer, Void> {
 
-//        MainActivity activity;
+        MainActivity activity;
 
         // получаем ссылку на MainActivity
         void link(MainActivity act) {
-//            activity = act;
+            activity = act;
         }
 
         // обнуляем ссылку
         void unLink() {
-//            activity = null;
+            activity = null;
         }
 
         @Override
@@ -72,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-//            activity.tv.setText("i = " + values[0]);
-            tv.setText("i = " + values[0]);
+            activity.tv.setText("i = " + values[0]);
+//            tv.setText("i = " + values[0]);
         }
     }
 }
