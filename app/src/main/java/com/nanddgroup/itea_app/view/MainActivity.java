@@ -19,7 +19,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     mainActivityPresenter.showText("My First MVP");
   }
 
-  @Override public void showCustomText(String str) {
+  @Override public void showTextInActivity(String str) {
     Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
+  }
+
+  @Override protected void onDestroy() {
+    mainActivityPresenter.unbind();
+    super.onDestroy();
   }
 }

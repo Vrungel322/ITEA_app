@@ -7,16 +7,12 @@ import com.nanddgroup.itea_app.view.interfaces.IMainActivityView;
  * Created by Nikita on 07.02.2017.
  */
 
-public class MainActivityPresenter implements IMainActivityPresenter {
-  private IMainActivityView iMainActivityView;
+public class MainActivityPresenter extends BasePresenter<IMainActivityView> implements IMainActivityPresenter {
+
   public MainActivityPresenter() {
   }
 
-  public void bind(IMainActivityView iMainActivityView){
-    this.iMainActivityView = iMainActivityView;
-  }
-
   @Override public void showText(String textToShow) {
-    iMainActivityView.showCustomText(textToShow);
+    getView().showTextInActivity(textToShow);
   }
 }
